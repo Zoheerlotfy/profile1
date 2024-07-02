@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let words = new Array(28);
+        let p = 0;
+        let s1, s2, s3, s4;
+        let curentnumber = 0;
+        let mynum;
+        let count_step = 0;
+        let pass1 = false;
+        let pass2 = false;
+        let pass3 = false;
+        let pass4 = false;
+        let pass5 = false;
+        let pass6 = false;
+        let pass7 = false;
+        let finish_game = false;
+        window.onload = function() {
+            let mynumber = ["1984", "1985", "1954", "2459", "5784", "9632", "1235",
+                "5684", "9863", "7532", "8632", "7412", "8564", "1596", "9632", "4568", "7534", "7891", "1456", "7564", "7896", "7536", "4563", "4785", "4786",
+                "4753", "7854", "7541", "4756", "7821", "1237", "1456", "4785", "5863", "7534", "7821", "7985", "3245", "3891", "3147", "6548", "1496"
+            ];
+            for (i = 0; i < words.length; i++) {
+                words[i] = "";
+            }
+
+            rad();
+
+            function rad() {
+                let y = Math.floor(Math.random(mynumber) * mynumber.length);
+                curentnumber = y;
+                mynum = mynumber[curentnumber];
+                mynum.split("");
+                s1 = mynum[0];
+                s2 = mynum[1];
+                s3 = mynum[2];
+                s4 = mynum[3];
+                return (mynumber[curentnumber]);
+            }
+
+            console.log(mynum);
+            console.log(s1);
+            newgame.onclick = function() {
+                window.location.reload();
+            }
+            b1.onclick = function() {
+                if (count_step < 4 && finish_game === false) {
+                    words[p] = document.getElementById("b1").value;
+                    p = p + 1;
+                    count_step = count_step + 1;
+                    show();
+                }
+
+            }
+            b2.onclick = function() {
+                if (count_step < 4 && finish_game === false) {
+                    words[p] = document.getElementById("b2").value;
+                    p = p + 1;
+                    count_step = count_step + 1;
+                    show();
+                }
+            }
+            b3.onclick = function() {
+                if (count_step < 4 && finish_game === false) {
+                    words[p] = document.getElementById("b3").value;
+                    p = p + 1;
+                    count_step = count_step + 1;
+                    show();
+                }
+            }
+            b4.onclick = function() {
+                if (count_step < 4 && finish_game === false) {
+                    words[p] = document.getElementById("b4").value;
+                    p = p + 1;
+                    count_step = count_step + 1;
+                    show();
+                }
+            }
+            b5.onclick = function() {
+                if (count_step < 4 && finish_game === false) {
+                    words[p] = document.getElementById("b5").value;
+                    p = p + 1;
+                    count_step = count_step + 1;
+                    show();
+                }
+            }
+            b6.onclick = function() {
+                if (count_step < 4 && finish_game === false) {
+                    words[p] = document.getElementById("b6").value;
+                    p = p + 1;
+                    count_step = count_step + 1;
+                    show();
+                }
+            }
+            b7.onclick = function() {
+                if (count_step < 4 && finish_game === false) {
+                    words[p] = document.getElementById("b7").value;
+                    p = p + 1;
+                    count_step = count_step + 1;
+                    show();
+                }
+            }
+            b8.onclick = function() {
+                if (count_step < 4 && finish_game === false) {
+                    words[p] = document.getElementById("b8").value;
+                    p = p + 1;
+                    count_step = count_step + 1;
+                    show();
+                }
+            }
+            b9.onclick = function() {
+                    if (count_step < 4 && finish_game === false) {
+
+                        words[p] = document.getElementById("b9").value;
+                        p = p + 1;
+                        count_step = count_step + 1;
+                        show();
+                    }
+                }
+                //enter
+            en.onclick = function() {
+                //  If tb4.Text <> "" And pass1 = False Then Call getword1
+                // let label = ["-"];
+                // for (i = 0; i < 4; i++) {
+
+                if (document.getElementsByName("t1")[3].value !== "" && pass1 === false && finish_game === false) {
+                    wordy1()
+                }
+                if (document.getElementsByName("t2")[3].value !== "" && pass2 === false && finish_game === false) {
+                    wordy2()
+                }
+                if (document.getElementsByName("t3")[3].value !== "" && pass3 === false && finish_game === false) {
+                    wordy3()
+                }
+                if (document.getElementsByName("t4")[3].value !== "" && pass4 === false && finish_game === false) {
+                    wordy4()
+                }
+                if (document.getElementsByName("t5")[3].value !== "" && pass5 === false && finish_game === false) {
+                    wordy5()
+                }
+                if (document.getElementsByName("t6")[3].value !== "" && pass6 === false && finish_game === false) {
+                    wordy6()
+                }
+                if (document.getElementsByName("t7")[3].value !== "" && pass7 === false && finish_game === false) {
+                    wordy7()
+                }
+                //         label[i] = "*";
+                //     } else {
+                //         label[i] = "-";
+                //     }
+
+                // }
+                // document.getElementsByName("t1")[4].value = `${label[0]} ${label[1]} ${label[2]} ${label[3]}`;
+            }
+            del.onclick = function() {
+
+                if (p >= 0 && pass1 === false) {
+                    words[p - 1] = "";
+                    count_step = count_step - 1;
+                    p = p - 1;
+                    show();
+                }
+                if (p > 4 && pass2 === false) {
+                    words[p - 1] = "";
+                    count_step = count_step - 1;
+                    p = p - 1;
+                    show();
+                }
+                if (p > 8 && pass3 === false) {
+                    words[p - 1] = "";
+                    count_step = count_step - 1;
+                    p = p - 1;
+                    show();
+                }
+                if (p > 12 && pass4 === false) {
+                    words[p - 1] = "";
+                    count_step = count_step - 1;
+                    p = p - 1;
+                    show();
+                }
+                if (p > 16 && pass5 === false) {
+                    words[p - 1] = "";
+                    count_step = count_step - 1;
+                    p = p - 1;
+                    show();
+                }
+                if (p > 20 && pass6 === false) {
+                    words[p - 1] = "";
+                    count_step = count_step - 1;
+                    p = p - 1;
+                    show();
+                }
+                if (p > 24 && pass7 === false) {
+                    words[p - 1] = "";
+                    count_step = count_step - 1;
+                    p = p - 1;
+                    show();
+                }
+
+
+            }
+
+            function check(a1, a2, a3, a4) {
+                if (a1 === a2 || a1 === a3 || a1 === a4 || a2 === a3 || a2 === a4 || a3 === a4) {
+                    return false;
+                } else {
+                    return true;
+                }
+
+                //a1 = a2 Or a1 = a3 Or a1 = a4 Or a2 = a3 Or a2 = a4 Or a3 = a4
+
+
+
+
+            }
+
+            function wordy1() {
+                let label = ["-"];
+                let indect = check(document.getElementsByName("t1")[0].value, document.getElementsByName("t1")[1].value, document.getElementsByName("t1")[2].value, document.getElementsByName("t1")[3].value)
+                if (indect === true) {
+                    for (i = 0; i < 4; i++) {
+                        if (document.getElementsByName("t1")[i].value === mynum[i]) {
+                            label[i] = "*";
+                        } else {
+                            label[i] = "-";
+                        }
+                    }
+                    for (i = 0; i < 4; i++) {
+                        for (j = 0; j < 4; j++) {
+                            if (i !== j) {
+                                if (document.getElementsByName("t1")[i].value === mynum[j]) {
+                                    label[i] = "+";
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    console.log(`${label[0]} ${label[1]} ${label[2]} ${label[3]}`);
+                    let star = 0;
+                    let blus = 0;
+                    let dec = 0;
+                    let slabel = ["----"];
+                    for (i = 0; i < 4; i++) {
+                        slabel[i] = "-";
+
+                    }
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "*") {
+                            star = star + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "+") {
+                            blus = blus + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "-") {
+                            dec = dec + 1
+                        }
+                    }
+                    console.log(`${star} ${blus} ${dec}`)
+
+                    for (i = 0; i < star; i++) {
+                        slabel[i] = "*";
+
+                    }
+                    for (i = star; i < blus + star; i++) {
+
+                        slabel[i] = "+";
+
+                    }
+                    pass1 = true;
+                    count_step = 0;
+                    setTimeout(() => {
+                        document.getElementsByName("t1")[4].value = `${slabel[0]}  `;
+
+                    }, 250);
+                    setTimeout(() => {
+                        document.getElementsByName("t1")[4].value = `${slabel[0]} ${slabel[1]} `;
+
+                    }, 500); //${slabel[2]} ${slabel[3]}
+                    setTimeout(() => {
+                        document.getElementsByName("t1")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]}`;
+
+                    }, 750);
+                    setTimeout(() => {
+                        document.getElementsByName("t1")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]} ${slabel[3]}`;
+
+                    }, 1000);
+
+                    if (document.getElementsByName("t1")[0].value === mynum[0] && document.getElementsByName("t1")[1].value === mynum[1] && document.getElementsByName("t1")[2].value === mynum[2] && document.getElementsByName("t1")[3].value === mynum[3]) {
+                        setTimeout(() => {
+
+                                alert("احسنت صنعا لقد عرفت الرقم");
+                            }
+
+                            , 1500);
+
+                        finish_game = true;
+                    }
+                } else {
+                    alert("يوجد ارقام متشابهة");
+                }
+            }
+
+
+
+            function wordy2() {
+                let label = ["-"];
+                let indect = check(document.getElementsByName("t2")[0].value, document.getElementsByName("t2")[1].value, document.getElementsByName("t2")[2].value, document.getElementsByName("t2")[3].value)
+                if (indect === true) {
+                    for (i = 0; i < 4; i++) {
+                        if (document.getElementsByName("t2")[i].value === mynum[i]) {
+                            label[i] = "*";
+                        } else {
+                            label[i] = "-";
+                        }
+                    }
+                    for (i = 0; i < 4; i++) {
+                        for (j = 0; j < 4; j++) {
+                            if (i !== j) {
+                                if (document.getElementsByName("t2")[i].value === mynum[j]) {
+                                    label[i] = "+";
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    console.log(`${label[0]} ${label[1]} ${label[2]} ${label[3]}`);
+                    let star = 0;
+                    let blus = 0;
+                    let dec = 0;
+                    let slabel = ["----"];
+                    for (i = 0; i < 4; i++) {
+                        slabel[i] = "-";
+
+                    }
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "*") {
+                            star = star + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "+") {
+                            blus = blus + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "-") {
+                            dec = dec + 1
+                        }
+                    }
+                    console.log(`${star} ${blus} ${dec}`)
+
+                    for (i = 0; i < star; i++) {
+                        slabel[i] = "*";
+
+                    }
+                    for (i = star; i < blus + star; i++) {
+
+                        slabel[i] = "+";
+
+                    }
+                    pass2 = true;
+                    count_step = 0;
+
+                    setTimeout(() => {
+                        document.getElementsByName("t2")[4].value = `${slabel[0]}  `;
+
+                    }, 250);
+                    setTimeout(() => {
+                        document.getElementsByName("t2")[4].value = `${slabel[0]} ${slabel[1]} `;
+
+                    }, 500); //${slabel[2]} ${slabel[3]}
+                    setTimeout(() => {
+                        document.getElementsByName("t2")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]}`;
+
+                    }, 750);
+                    setTimeout(() => {
+                        document.getElementsByName("t2")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]} ${slabel[3]}`;
+
+                    }, 1000);
+                    if (document.getElementsByName("t2")[0].value === mynum[0] && document.getElementsByName("t2")[1].value === mynum[1] && document.getElementsByName("t2")[2].value === mynum[2] && document.getElementsByName("t2")[3].value === mynum[3]) {
+                        setTimeout(() => {
+
+                            alert("احسنت صنعا لقد عرفت الرقم");
+                        }, 1500);
+                        finish_game = true;
+                    }
+                } else {
+                    alert("يوجد ارقام متشابة");
+                }
+            }
+
+            function wordy3() {
+                let label = ["-"];
+                let indect = check(document.getElementsByName("t3")[0].value, document.getElementsByName("t3")[1].value, document.getElementsByName("t3")[2].value, document.getElementsByName("t3")[3].value)
+                if (indect === true) {
+                    for (i = 0; i < 4; i++) {
+                        if (document.getElementsByName("t3")[i].value === mynum[i]) {
+                            label[i] = "*";
+                        } else {
+                            label[i] = "-";
+                        }
+                    }
+                    for (i = 0; i < 4; i++) {
+                        for (j = 0; j < 4; j++) {
+                            if (i !== j) {
+                                if (document.getElementsByName("t3")[i].value === mynum[j]) {
+                                    label[i] = "+";
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    console.log(`${label[0]} ${label[1]} ${label[2]} ${label[3]}`);
+                    let star = 0;
+                    let blus = 0;
+                    let dec = 0;
+                    let slabel = ["----"];
+                    for (i = 0; i < 4; i++) {
+                        slabel[i] = "-";
+
+                    }
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "*") {
+                            star = star + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "+") {
+                            blus = blus + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "-") {
+                            dec = dec + 1
+                        }
+                    }
+                    console.log(`${star} ${blus} ${dec}`)
+
+                    for (i = 0; i < star; i++) {
+                        slabel[i] = "*";
+
+                    }
+                    for (i = star; i < blus + star; i++) {
+
+                        slabel[i] = "+";
+
+                    }
+
+                    pass3 = true;
+                    count_step = 0;
+                    setTimeout(() => {
+                        document.getElementsByName("t3")[4].value = `${slabel[0]}  `;
+
+                    }, 250);
+                    setTimeout(() => {
+                        document.getElementsByName("t3")[4].value = `${slabel[0]} ${slabel[1]} `;
+
+                    }, 500); //${slabel[2]} ${slabel[3]}
+                    setTimeout(() => {
+                        document.getElementsByName("t3")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]}`;
+
+                    }, 750);
+                    setTimeout(() => {
+                        document.getElementsByName("t3")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]} ${slabel[3]}`;
+
+                    }, 1000);
+                    if (document.getElementsByName("t3")[0].value === mynum[0] && document.getElementsByName("t3")[1].value === mynum[1] && document.getElementsByName("t3")[2].value === mynum[2] && document.getElementsByName("t3")[3].value === mynum[3]) {
+                        setTimeout(() => {
+
+                            alert("احسنت صنعا لقد عرفت الرقم");
+                        }, 1500);
+                        finish_game = true;
+                    }
+                } else {
+                    alert("يوجد ارقام متشابهة")
+                }
+
+            }
+
+            function wordy4() {
+                let label = ["-"];
+                let indect = check(document.getElementsByName("t4")[0].value, document.getElementsByName("t4")[1].value, document.getElementsByName("t4")[2].value, document.getElementsByName("t4")[3].value)
+                if (indect === true) {
+                    for (i = 0; i < 4; i++) {
+                        if (document.getElementsByName("t4")[i].value === mynum[i]) {
+                            label[i] = "*";
+                        } else {
+                            label[i] = "-";
+                        }
+                    }
+                    for (i = 0; i < 4; i++) {
+                        for (j = 0; j < 4; j++) {
+                            if (i !== j) {
+                                if (document.getElementsByName("t4")[i].value === mynum[j]) {
+                                    label[i] = "+";
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    console.log(`${label[0]} ${label[1]} ${label[2]} ${label[3]}`);
+                    let star = 0;
+                    let blus = 0;
+                    let dec = 0;
+                    let slabel = ["----"];
+                    for (i = 0; i < 4; i++) {
+                        slabel[i] = "-";
+
+                    }
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "*") {
+                            star = star + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "+") {
+                            blus = blus + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "-") {
+                            dec = dec + 1
+                        }
+                    }
+                    console.log(`${star} ${blus} ${dec}`)
+
+                    for (i = 0; i < star; i++) {
+                        slabel[i] = "*";
+
+                    }
+                    for (i = star; i < blus + star; i++) {
+
+                        slabel[i] = "+";
+
+                    }
+
+                    pass4 = true;
+                    count_step = 0;
+                    setTimeout(() => {
+                        document.getElementsByName("t4")[4].value = `${slabel[0]}  `;
+
+                    }, 250);
+                    setTimeout(() => {
+                        document.getElementsByName("t4")[4].value = `${slabel[0]} ${slabel[1]} `;
+
+                    }, 500); //${slabel[2]} ${slabel[3]}
+                    setTimeout(() => {
+                        document.getElementsByName("t4")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]}`;
+
+                    }, 750);
+                    setTimeout(() => {
+                        document.getElementsByName("t4")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]} ${slabel[3]}`;
+
+                    }, 1000);
+                    if (document.getElementsByName("t4")[0].value === mynum[0] && document.getElementsByName("t4")[1].value === mynum[1] && document.getElementsByName("t4")[2].value === mynum[2] && document.getElementsByName("t4")[3].value === mynum[3]) {
+                        setTimeout(() => {
+
+                            alert("احسنت صنعا لقد عرفت الرقم");
+                        }, 1500);
+                        finish_game = true;
+                    }
+                } else {
+                    alert("يوجد ارقام متشابهة");
+                }
+            }
+
+            function wordy5() {
+                let label = ["-"];
+                let indect = check(document.getElementsByName("t5")[0].value, document.getElementsByName("t5")[1].value, document.getElementsByName("t5")[2].value, document.getElementsByName("t5")[3].value)
+                if (indect === true) {
+                    for (i = 0; i < 4; i++) {
+                        if (document.getElementsByName("t5")[i].value === mynum[i]) {
+                            label[i] = "*";
+                        } else {
+                            label[i] = "-";
+                        }
+                    }
+                    for (i = 0; i < 4; i++) {
+                        for (j = 0; j < 4; j++) {
+                            if (i !== j) {
+                                if (document.getElementsByName("t5")[i].value === mynum[j]) {
+                                    label[i] = "+";
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    console.log(`${label[0]} ${label[1]} ${label[2]} ${label[3]}`);
+                    let star = 0;
+                    let blus = 0;
+                    let dec = 0;
+                    let slabel = ["----"];
+                    for (i = 0; i < 4; i++) {
+                        slabel[i] = "-";
+
+                    }
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "*") {
+                            star = star + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "+") {
+                            blus = blus + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "-") {
+                            dec = dec + 1
+                        }
+                    }
+                    console.log(`${star} ${blus} ${dec}`)
+
+                    for (i = 0; i < star; i++) {
+                        slabel[i] = "*";
+
+                    }
+                    for (i = star; i < blus + star; i++) {
+
+                        slabel[i] = "+";
+
+                    }
+                    pass5 = true;
+                    count_step = 0;
+                    setTimeout(() => {
+                        document.getElementsByName("t5")[4].value = `${slabel[0]}  `;
+
+                    }, 250);
+                    setTimeout(() => {
+                        document.getElementsByName("t5")[4].value = `${slabel[0]} ${slabel[1]} `;
+
+                    }, 500); //${slabel[2]} ${slabel[3]}
+                    setTimeout(() => {
+                        document.getElementsByName("t5")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]}`;
+
+                    }, 750);
+                    setTimeout(() => {
+                        document.getElementsByName("t5")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]} ${slabel[3]}`;
+
+                    }, 1000);
+                    if (document.getElementsByName("t5")[0].value === mynum[0] && document.getElementsByName("t5")[1].value === mynum[1] && document.getElementsByName("t5")[2].value === mynum[2] && document.getElementsByName("t5")[3].value === mynum[3]) {
+                        setTimeout(() => {
+
+                            alert("احسنت صنعا لقد عرفت الرقم");
+                        }, 1500);
+                        finish_game = true
+                    }
+                } else {
+                    alert("يوجد ارقام متشابهة");
+                }
+            }
+
+            function wordy6() {
+                let label = ["-"];
+                let indect = check(document.getElementsByName("t6")[0].value, document.getElementsByName("t6")[1].value, document.getElementsByName("t6")[2].value, document.getElementsByName("t6")[3].value)
+                if (indect === true) {
+                    for (i = 0; i < 4; i++) {
+                        if (document.getElementsByName("t6")[i].value === mynum[i]) {
+                            label[i] = "*";
+                        } else {
+                            label[i] = "-";
+                        }
+                    }
+                    for (i = 0; i < 4; i++) {
+                        for (j = 0; j < 4; j++) {
+                            if (i !== j) {
+                                if (document.getElementsByName("t6")[i].value === mynum[j]) {
+                                    label[i] = "+";
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    console.log(`${label[0]} ${label[1]} ${label[2]} ${label[3]}`);
+                    let star = 0;
+                    let blus = 0;
+                    let dec = 0;
+                    let slabel = ["----"];
+                    for (i = 0; i < 4; i++) {
+                        slabel[i] = "-";
+
+                    }
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "*") {
+                            star = star + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "+") {
+                            blus = blus + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "-") {
+                            dec = dec + 1
+                        }
+                    }
+                    console.log(`${star} ${blus} ${dec}`)
+
+                    for (i = 0; i < star; i++) {
+                        slabel[i] = "*";
+
+                    }
+                    for (i = star; i < blus + star; i++) {
+
+                        slabel[i] = "+";
+
+                    }
+
+                    pass6 = true;
+                    count_step = 0;
+                    setTimeout(() => {
+                        document.getElementsByName("t6")[4].value = `${slabel[0]}  `;
+
+                    }, 250);
+                    setTimeout(() => {
+                        document.getElementsByName("t6")[4].value = `${slabel[0]} ${slabel[1]} `;
+
+                    }, 500); //${slabel[2]} ${slabel[3]}
+                    setTimeout(() => {
+                        document.getElementsByName("t6")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]}`;
+
+                    }, 750);
+                    setTimeout(() => {
+                        document.getElementsByName("t6")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]} ${slabel[3]}`;
+
+                    }, 1000);
+                    if (document.getElementsByName("t6")[0].value === mynum[0] && document.getElementsByName("t6")[1].value === mynum[1] && document.getElementsByName("t6")[2].value === mynum[2] && document.getElementsByName("t6")[3].value === mynum[3]) {
+                        setTimeout(() => {
+
+                            alert("احسنت صنعا لقد عرفت الرقم");
+                        }, 1500);
+                        finish_game = true
+                    }
+                } else {
+                    alert("يوجد ارقام متشابهة")
+                }
+            }
+
+            function wordy7() {
+                let label = ["-"];
+                let indect = check(document.getElementsByName("t7")[0].value, document.getElementsByName("t7")[1].value, document.getElementsByName("t7")[2].value, document.getElementsByName("t7")[3].value)
+                if (indect === true) {
+                    for (i = 0; i < 4; i++) {
+                        if (document.getElementsByName("t7")[i].value === mynum[i]) {
+                            label[i] = "*";
+                        } else {
+                            label[i] = "-";
+                        }
+                    }
+                    for (i = 0; i < 4; i++) {
+                        for (j = 0; j < 4; j++) {
+                            if (i !== j) {
+                                if (document.getElementsByName("t7")[i].value === mynum[j]) {
+                                    label[i] = "+";
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    console.log(`${label[0]} ${label[1]} ${label[2]} ${label[3]}`);
+                    let star = 0;
+                    let blus = 0;
+                    let dec = 0;
+                    let slabel = ["----"];
+                    for (i = 0; i < 4; i++) {
+                        slabel[i] = "-";
+
+                    }
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "*") {
+                            star = star + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "+") {
+                            blus = blus + 1
+                        }
+                    }
+
+                    for (i = 0; i < 4; i++) {
+                        if (label[i] === "-") {
+                            dec = dec + 1
+                        }
+                    }
+                    console.log(`${star} ${blus} ${dec}`)
+
+                    for (i = 0; i < star; i++) {
+                        slabel[i] = "*";
+
+                    }
+                    for (i = star; i < blus + star; i++) {
+
+                        slabel[i] = "+";
+
+                    }
+
+                    pass7 = true;
+                    count_step = 0;
+                    setTimeout(() => {
+                        document.getElementsByName("t7")[4].value = `${slabel[0]}  `;
+
+                    }, 250);
+                    setTimeout(() => {
+                        document.getElementsByName("t7")[4].value = `${slabel[0]} ${slabel[1]} `;
+
+                    }, 500); //${slabel[2]} ${slabel[3]}
+                    setTimeout(() => {
+                        document.getElementsByName("t7")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]}`;
+
+                    }, 750);
+                    setTimeout(() => {
+                        document.getElementsByName("t7")[4].value = `${slabel[0]} ${slabel[1]} ${slabel[2]} ${slabel[3]}`;
+
+                    }, 1000);
+                    if (document.getElementsByName("t7")[0].value === mynum[0] && document.getElementsByName("t7")[1].value === mynum[1] && document.getElementsByName("t7")[2].value === mynum[2] && document.getElementsByName("t7")[3].value === mynum[3]) {
+                        setTimeout(() => {
+
+                            alert("احسنت صنعا لقد عرفت الرقم");
+                        }, 1500);
+                        finish_game = true
+                    } else {
+                        // 
+                        setTimeout(() => {
+
+                            alert(`${" حظا اوفر في المرة القادمة الرقم هو "} ${mynum}`);
+                        }, 1500);
+                        finish_game = true
+                    }
+                } else {
+                    alert("يوجد ارقام متشابهة")
+                }
+            }
+
+            function show() {
+                //  document.getElementById("t1").value = words[0];
+                // document.getElementById("t2").value = words[1];
+
+                for (i = 0; i < 4; i++) {
+                    document.getElementsByName("t1")[i].value = words[i];
+                    let a = document.getElementsByName("t1")[i];
+                    if (words[i] !== "") {
+                        a.style.cssText = "  border: 2px solid rgb(0, 0, 0); background-color:  rgb(233, 233, 218)";
+                    } else {
+                        a.style.cssText = " border: 2px solid rgb(144, 148, 148); background-color:  rgb(247, 248, 198)";
+                    }
+
+
+                }
+                for (j = 0; j < 4; j++) {
+                    document.getElementsByName("t2")[j].value = words[j + 4];
+                    let b = document.getElementsByName("t2")[j];
+                    if (words[j + 4] !== "") {
+                        b.style.cssText = "  border: 2px solid rgb(0, 0, 0); background-color:  rgb(233, 233, 218)";
+                    } else {
+                        b.style.cssText = " border: 2px solid rgb(144, 148, 148); background-color:  rgb(247, 248, 198)";
+                    }
+
+                }
+                for (j = 0; j < 4; j++) {
+                    document.getElementsByName("t3")[j].value = words[j + 8];
+                    let a = document.getElementsByName("t3")[j];
+                    if (words[j + 8] !== "") {
+                        a.style.cssText = "  border: 2px solid rgb(0, 0, 0); background-color:  rgb(233, 233, 218)";
+                    } else {
+                        a.style.cssText = " border: 2px solid rgb(144, 148, 148); background-color:  rgb(247, 248, 198)";
+                    }
+
+                }
+                for (j = 0; j < 4; j++) {
+                    document.getElementsByName("t4")[j].value = words[j + 12];
+                    let a = document.getElementsByName("t4")[j];
+                    if (words[j + 12] !== "") {
+                        a.style.cssText = "  border: 2px solid rgb(0, 0, 0); background-color:  rgb(233, 233, 218)";
+                    } else {
+                        a.style.cssText = " border: 2px solid rgb(144, 148, 148); background-color:  rgb(247, 248, 198)";
+                    }
+
+                }
+                for (j = 0; j < 4; j++) {
+                    document.getElementsByName("t5")[j].value = words[j + 16];
+                    let a = document.getElementsByName("t5")[j];
+                    if (words[j + 16] !== "") {
+                        a.style.cssText = "  border: 2px solid rgb(0, 0, 0); background-color:  rgb(233, 233, 218)";
+                    } else {
+                        a.style.cssText = " border: 2px solid rgb(144, 148, 148); background-color:  rgb(247, 248, 198)";
+                    }
+
+                }
+                for (j = 0; j < 4; j++) {
+                    document.getElementsByName("t6")[j].value = words[j + 20];
+                    let a = document.getElementsByName("t6")[j];
+                    if (words[j + 20] !== "") {
+                        a.style.cssText = "  border: 2px solid rgb(0, 0, 0); background-color:  rgb(233, 233, 218)";
+                    } else {
+                        a.style.cssText = " border: 2px solid rgb(144, 148, 148); background-color:  rgb(247, 248, 198)";
+                    }
+
+                }
+                for (j = 0; j < 4; j++) {
+                    document.getElementsByName("t7")[j].value = words[j + 24];
+                    let a = document.getElementsByName("t7")[j];
+                    if (words[j + 24] !== "") {
+                        a.style.cssText = "  border: 2px solid rgb(0, 0, 0); background-color:  rgb(233, 233, 218)";
+                    } else {
+                        a.style.cssText = " border: 2px solid rgb(144, 148, 148); background-color:  rgb(247, 248, 198)";
+                    }
+                }
+
+                console.log(words);
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <style>
+        #t1,
+        #t2,
+        #t3,
+        #t4,
+        #t5,
+        #t6,
+        #t7 {
+            background-color: rgb(247, 248, 198);
+            /*rgb(247, 248, 198)*/
+            border: 2px solid rgb(144, 148, 148);
+            text-align: center;
+            font-size: 5vw;
+            /*  font-size: 1rem;*/
+            border-radius: 0.5rem;
+            display: flexbox;
+            pointer-events: none;
+            /* height: 1.5rem;*/
+        }
+        
+        #b7,
+        #b8,
+        #b9,
+        #b6,
+        #b5,
+        #b4,
+        #en,
+        #del,
+        #b1,
+        #b2,
+        #b3 {
+            height: 3rem;
+            width: 3rem;
+        }
+        
+        p {
+            text-align: center;
+            margin: 0.1rem;
+        }
+        
+        .p1 {
+            text-align: center;
+            font-size: larger;
+        }
+        /*------------------------------------*/
+        
+         :root {
+            --lightgray: #efefef;
+            --blue: steelblue;
+            --white: #fff;
+            --black: rgba(0, 0, 0, 0.8);
+            --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.15);
+        }
+        /*         
+        * {
+            padding: 0;
+            margin: 0;
+        } */
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        button {
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: inherit;
+            text-align: center;
+        }
+        /* body {
+            direction: rtl;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font: 16px/1.5 sans-serif;
+        } */
+        
+        .btn-group {
+            text-align: center;
+        }
+        
+        .open-modal {
+            font-weight: bold;
+            background: var(--blue);
+            color: var(--white);
+            padding: 0.75rem 1.75rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+        
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: var(--black);
+            cursor: pointer;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.35s ease-in;
+        }
+        
+        .modal.is-visible {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .modal-dialog {
+            position: relative;
+            max-width: 800px;
+            max-height: 80vh;
+            border-radius: 5px;
+            background: var(--white);
+            overflow: auto;
+            cursor: default;
+        }
+        
+        .modal-dialog>* {
+            padding: 1rem;
+        }
+        
+        .modal-header,
+        .modal-footer {
+            background: var(--lightgray);
+        }
+        
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .modal-header .close-modal {
+            font-size: 1.5rem;
+        }
+        
+        .modal p+p {
+            margin-top: 1rem;
+        }
+    </style>
+
+
+
+    <form action="">
+        <p>
+            <button type="button" class="open-modal" data-open="modal1">
+كيف؟          </button>
+        </p>
+        <div id="word1">
+            <p>
+                <input id="t1" type="text" name="t1" size="1">
+                <input id="t1" type="text" name="t1" size="1">
+                <input id="t1" type="text" name="t1" size="1">
+                <input id="t1" type="text" name="t1" size="1">
+                <input id="t1" type="text" name="t1" size="5">
+
+
+
+            </p>
+        </div>
+
+
+        <div id="word2">
+            <p>
+                <input id="t2" type="text" name="t2" size="1">
+                <input id="t2" type="text" name="t2" size="1">
+                <input id="t2" type="text" name="t2" size="1">
+                <input id="t2" type="text" name="t2" size="1">
+                <input id="t2" type="text" name="t2" size="5">
+            </p>
+        </div>
+        <div class="word3">
+            <p>
+                <input id="t3" type="text" name="t3" size="1">
+                <input id="t3" type="text" name="t3" size="1">
+                <input id="t3" type="text" name="t3" size="1">
+                <input id="t3" type="text" name="t3" size="1">
+                <input id="t3" type="text" name="t3" size="5">
+            </p>
+        </div>
+        <div class="word4">
+            <p>
+                <input id="t4" type="text" name="t4" size="1">
+                <input id="t4" type="text" name="t4" size="1">
+                <input id="t4" type="text" name="t4" size="1">
+                <input id="t4" type="text" name="t4" size="1">
+                <input id="t4" type="text" name="t4" size="5">
+            </p>
+        </div>
+        <div class="word5">
+            <p>
+                <input id="t5" type="text" name="t5" size="1">
+                <input id="t5" type="text" name="t5" size="1">
+                <input id="t5" type="text" name="t5" size="1">
+                <input id="t5" type="text" name="t5" size="1">
+                <input id="t5" type="text" name="t5" size="5">
+            </p>
+        </div>
+        <div class="word6">
+            <p>
+                <input id="t6" type="text" name="t6" size="1">
+                <input id="t6" type="text" name="t6" size="1">
+                <input id="t6" type="text" name="t6" size="1">
+                <input id="t6" type="text" name="t6" size="1">
+                <input id="t6" type="text" name="t6" size="5">
+            </p>
+        </div>
+        <div class="word7">
+            <p>
+                <input id="t7" type="text" name="t7" size="1">
+                <input id="t7" type="text" name="t7" size="1">
+                <input id="t7" type="text" name="t7" size="1">
+                <input id="t7" type="text" name="t7" size="1">
+                <input id="t7" type="text" name="t7" size="5">
+            </p>
+        </div>
+
+        <div class="buttonrow1">
+            <p width="3rem" height="3rem">
+                <input id="b7" type="button" value="7" size="10">
+                <input id="b8" type="button" value="8" size="10">
+                <input id="b9" type="button" value="9" size="10">
+
+            </p>
+        </div>
+        <div class="buttonrow2">
+            <p id="but1">
+                <input id="b4" type="button" value="4" size="10">
+                <input id="b5" type="button" value="5" size="10">
+                <input id="b6" type="button" value="6" size="10">
+
+            </p>
+        </div>
+
+
+        <div class="buttonrow3">
+            <p>
+                <input id="en" type="button" value="ادخال" size="10">
+                <input id="b1" type="button" value="1" size="10">
+                <input id="b2" type="button" value="2" size="10">
+                <input id="b3" type="button" value="3" size="10">
+                <input id="del" type="button" value="حذف" size="10">
+
+            </p>
+            <p>
+                <input id="newgame" type="button" value="مرة اخرى" size="10">
+            </p>
+        </div>
+    </form>
+
+
+    <div class="modal" id="modal1">
+        <div class="modal-dialog">
+            <header class="modal-header" dir="rtl"><strong>
+                مثال عن اللعبة</strong>
+                <button class="close-modal" aria-label="close modal" data-close>
+          ✕  
+        </button>
+            </header>
+            <section class="modal-content">
+                <p dir="rtl">اللعبة عبارة عن رقم لغز عليك المحاولة لمعرفته يوجد لديك 7 محاولات </p>
+                <p dir="rtl">الرموز تساعدك بالاقتراب من الحل من خلال التفكير المنطقي</p>
+                <p dir="rtl">يعبر رمز النجمة(*) عن رقم صحيح وفي مكانه الصحيح </p>
+                <p dir="rtl">يعبر رمز الزائد (+) عن رقم صحيح وفي مكانه الخطأ </p>
+                <p dir="rtl">يعبر رمز الناقص (-) عن رقم الخطأ </p>
+                <p><strong>في مثالنا ليكن الرقم اللغز الواجب معرفته من خلال المحاولات هو 1984</strong></p>
+                <p><strong>  اذا قمت  بكتابة المحاولة الاولى وهي 1234</strong></p>
+                <p><strong> **--فان النتيجة ستكون </strong></p>
+                <p><strong>     اي ان هناك رقمين صحيحين وفي  مكانهم الصحيح وهما كما في مثالنا 1 و 4</strong></p>
+                <p dir="ltr"> <input id="t1" type="text" name="t1" size="1" value="1">
+                    <input id="t1" type="text" name="t1" size="1" value="2">
+                    <input id="t1" type="text" name="t1" size="1" value="3">
+                    <input id="t1" type="text" name="t1" size="1" value="4">
+                    <input id="t1" type="text" name="t1" size="5" value="**--"></p>
+                <p><strong> اذا قمت بكتابة المحاولة الثانية 5978</strong></p>
+                <p><strong> *+-- فان النتيجة ستكون </strong></p>
+                <p dir="ltr"> <input id="t1" type="text" name="t1" size="1" value="5">
+                    <input id="t1" type="text" name="t1" size="1" value="9">
+                    <input id="t1" type="text" name="t1" size="1" value="7">
+                    <input id="t1" type="text" name="t1" size="1" value="8">
+                    <input id="t1" type="text" name="t1" size="5" value="*+--"></p>
+                <p><strong> يوجد رقم صحيح في مكانه الصحيح وهو 9 ويوجد رقم صحيح في مكانه الخطأ وهو 8  </strong></p>
+                <p><strong> ملاحظة:في اللعبة يتم ترتيب النجوم اولا ثم الزوائد ثم النواقص </strong></p>
+            </section>
+            <footer class="modal-footer" dir="rtl">
+                <strong>  برمجة واعداد: زهير لطيفي</strong>
+
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const openEls = document.querySelectorAll("[data-open]");
+        const closeEls = document.querySelectorAll("[data-close]");
+        const isVisible = "is-visible";
+
+
+        for (const el of openEls) {
+            el.addEventListener("click", function() {
+                const modalId = this.dataset.open;
+                document.getElementById(modalId).classList.add(isVisible);
+            });
+        }
+
+        for (const el of closeEls) {
+            el.addEventListener("click", function() {
+                this.parentElement.parentElement.parentElement.classList.remove(isVisible);
+            });
+        }
+
+        document.addEventListener("click", e => {
+            if (e.target == document.querySelector(".modal.is-visible")) {
+                document.querySelector(".modal.is-visible").classList.remove(isVisible);
+            }
+        });
+
+        document.addEventListener("keyup", e => {
+            // إذا قمنا بالضغط على المفتاح ESC
+            if (e.key == "Escape" && document.querySelector(".modal.is-visible")) {
+                document.querySelector(".modal.is-visible").classList.remove(isVisible);
+            }
+        });
+    </script>
+</body>
+
+</html>
